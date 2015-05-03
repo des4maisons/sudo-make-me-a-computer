@@ -4,5 +4,5 @@
     src: 'tmux.conf'
     dest: '~/.tmux.conf'
     owner: "{{ user }}"
-    group: "{{ user }}"
+    group: "{{ group }}"
     mode: '0644'

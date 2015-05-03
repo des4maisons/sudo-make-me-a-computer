@@ -4,7 +4,7 @@
     src: "{{ item }}"
     dest: "~/.{{ item }}"
     owner: "{{ user }}"
-    group: "{{ user }}"
+    group: "{{ group }}"
     mode: '0644'
   with_items:
     - 'gitconfig'

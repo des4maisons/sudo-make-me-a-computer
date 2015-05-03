@@ -3,7 +3,7 @@
   file:
     path: '~/.vim'
     owner: "{{ user }}"
-    group: "{{ user }}"
+    group: "{{ group }}"
     mode: '0700'
     state: directory
 
@@ -11,7 +11,7 @@
   file:
     path: '~/.vim/bundle'
     owner: "{{ user }}"
-    group: "{{ user }}"
+    group: "{{ group }}"
     mode: '0700'
     state: directory
 
@@ -27,5 +27,5 @@
     src: 'vimrc'
     dest: "~/.vimrc"
     owner: "{{ user }}"
-    group: "{{ user }}"
+    group: "{{ group }}"
     mode: '0644'

@@ -3,7 +3,7 @@
   file:
     path: '~/.config'
     owner: "{{ user }}"
-    group: "{{ user }}"
+    group: "{{ group }}"
     mode: '0700'
     state: directory
 
@@ -11,7 +11,7 @@
   file:
     path: '~/crap'
     owner: "{{ user }}"
-    group: "{{ user }}"
+    group: "{{ group }}"
     mode: '0700'
     state: directory
 
@@ -34,14 +34,14 @@
     src: 'user-dirs.dirs'
     dest: '~/.config/user-dirs.dirs'
     owner: "{{ user }}"
-    group: "{{ user }}"
+    group: "{{ group }}"
     mode: '0644'
 
 - name: 'Create the ~/.config/gtk-3.0 directory'
   file:
     path: '~/.config/gtk-3.0'
     owner: "{{ user }}"
-    group: "{{ user }}"
+    group: "{{ group }}"
     mode: '0700'
     state: directory
 
@@ -50,5 +50,5 @@
     src: 'gtk-settings.ini'
     dest: '~/.config/gtk-3.0/settings.ini'
     owner: "{{ user }}"
-    group: "{{ user }}"
+    group: "{{ group }}"
     mode: '0644'

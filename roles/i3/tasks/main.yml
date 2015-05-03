@@ -3,7 +3,7 @@
   file:
     path: '~/.i3'
     owner: "{{ user }}"
-    group: "{{ user }}"
+    group: "{{ group }}"
     mode: '0700'
     state: directory
 
@@ -12,7 +12,7 @@
     src: "{{ item }}"
     dest: "~/.i3/{{ item }}"
     owner: "{{ user }}"
-    group: "{{ user }}"
+    group: "{{ group }}"
     mode: '0644'
   with_items:
     - 'config'
@@ -23,7 +23,7 @@
     src: "{{ item }}"
     dest: "~/.i3/{{ item }}"
     owner: "{{ user }}"
-    group: "{{ user }}"
+    group: "{{ group }}"
     mode: '0755'
   with_items:
     - 'i3ctl.sh'
@@ -35,7 +35,7 @@
     src: "{{ item }}"
     dest: "~/.{{ item }}"
     owner: "{{ user }}"
-    group: "{{ user }}"
+    group: "{{ group }}"
     mode: '0444'
   with_items:
     - 'xresources'
