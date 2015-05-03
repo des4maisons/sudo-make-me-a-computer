@@ -1,0 +1,13 @@
+# ~/.tmuxinator/work.yml
+
+name: 'work'
+root: '~/projects'
+
+startup_window: 'goals'
+
+windows:
+  - vi: 'cd "${PROECT}"'
+  - run: 'cd "${PROECT}"'
+  - git: 'cd "${PROECT}"'
+  - ssh: 'cd "${PROECT}"'
+  - goals: 'vim ~/goals.md'
