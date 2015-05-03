@@ -3,8 +3,8 @@
   copy:
     src: "{{ item }}"
     dest: "~/.{{ item }}"
-    owner: 'marvin'
-    group: 'marvin'
+    owner: "{{ user }}"
+    group: "{{ user }}"
     mode: '0644'
   with_items:
     - 'bash_profile'

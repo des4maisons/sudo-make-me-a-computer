@@ -2,8 +2,8 @@
 - name: 'Create the ~/.i3 directory'
   file:
     path: '~/.i3'
-    owner: 'marvin'
-    group: 'marvin'
+    owner: "{{ user }}"
+    group: "{{ user }}"
     mode: '0700'
     state: directory
 
@@ -11,8 +11,8 @@
   copy:
     src: "{{ item }}"
     dest: "~/.i3/{{ item }}"
-    owner: 'marvin'
-    group: 'marvin'
+    owner: "{{ user }}"
+    group: "{{ user }}"
     mode: '0644'
   with_items:
     - 'config'
@@ -22,8 +22,8 @@
   copy:
     src: "{{ item }}"
     dest: "~/.i3/{{ item }}"
-    owner: 'marvin'
-    group: 'marvin'
+    owner: "{{ user }}"
+    group: "{{ user }}"
     mode: '0755'
   with_items:
     - 'i3ctl.sh'
@@ -34,8 +34,8 @@
   copy:
     src: "{{ item }}"
     dest: "~/.{{ item }}"
-    owner: 'marvin'
-    group: 'marvin'
+    owner: "{{ user }}"
+    group: "{{ user }}"
     mode: '0444'
   with_items:
     - 'xresources'

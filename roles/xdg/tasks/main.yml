@@ -2,16 +2,16 @@
 - name: 'Create the ~/.config directory'
   file:
     path: '~/.config'
-    owner: 'marvin'
-    group: 'marvin'
+    owner: "{{ user }}"
+    group: "{{ user }}"
     mode: '0700'
     state: directory
 
 - name: 'Create the ~/crap directory'
   file:
     path: '~/crap'
-    owner: 'marvin'
-    group: 'marvin'
+    owner: "{{ user }}"
+    group: "{{ user }}"
     mode: '0700'
     state: directory
 
@@ -33,15 +33,15 @@
   copy:
     src: 'user-dirs.dirs'
     dest: '~/.config/user-dirs.dirs'
-    owner: 'marvin'
-    group: 'marvin'
+    owner: "{{ user }}"
+    group: "{{ user }}"
     mode: '0644'
 
 - name: 'Create the ~/.config/gtk-3.0 directory'
   file:
     path: '~/.config/gtk-3.0'
-    owner: 'marvin'
-    group: 'marvin'
+    owner: "{{ user }}"
+    group: "{{ user }}"
     mode: '0700'
     state: directory
 
@@ -49,6 +49,6 @@
   copy:
     src: 'gtk-settings.ini'
     dest: '~/.config/gtk-3.0/settings.ini'
-    owner: 'marvin'
-    group: 'marvin'
+    owner: "{{ user }}"
+    group: "{{ user }}"
     mode: '0644'
