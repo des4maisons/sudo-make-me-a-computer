@@ -20,6 +20,12 @@ syntax enable
 " Disable error bells
 set noerrorbells
 
+" Don't wrap lines
+set nowrap
+
+" let backspace work past eol, etc
+set backspace=indent,eol,start
+
 """" Start of Vundle related items
 
 " set the runtime path to include Vundle and initialize
@@ -57,24 +63,16 @@ hi statusline ctermfg=15 ctermbg=102
 
 " Format status line
 set laststatus=2         " always show the status line
-set statusline=\ [%n]    " buffer number
-" set statusline+=\ %f     " relative path to the current file
-set statusline+=\ %t     " tail of the file name
-set statusline+=\ [%{strlen(&fenc)?&fenc:'none'},  " file encoding
-set statusline+=%{&ff}]  " file format
-set statusline+=\ %h     " help file flag
-set statusline+=%m       " modified flag
-set statusline+=%r       " read only flag
-set statusline+=[%{empty(&filetype)?'none':&filetype}] " filetype or 'none'
-set statusline+=%=       " left/right separator
-set statusline+=(%l,     " row
-set statusline+=%c\ %L)  " cursor column
-set statusline+=\ %P     " percent through file
+"filetype,  filename, modified, column, line, total lines
+set statusline=%Y\ %f\ %M%=%c,%l\/%L
 
 " Searching
 set incsearch   " incremental search
 set hlsearch    " highlight search items
 set ignorecase  " case-insensitive searches
+"make $ into a word separator
+set iskeyword-=$
+
 
 " Remove access to the arrow keys
 nnoremap <up> <nop>
@@ -91,7 +89,7 @@ set modeline
 set modelines=1
 
 " Map the <leader> key to ,
-let mapleader = ","
+let mapleader = " "
 
 " Enable hidden buffers by default (doesn't bother you
 " when switching back and forth)
@@ -118,6 +116,24 @@ set scrolloff=3
 " Use the distinguised colorscheme
 " colorscheme railscasts
 
+" alias W to w
+command W w
+
+" set the grep program to git-grep. no color so as not to confuse parser
+set grepprg=git\ grep\ --no-color\ -n
+" <space>-{j,k} goes to next/previous search result
+map <Leader>j :cnext<CR>
+map <Leader>k :cprev<CR>
+
+" keep moar history
+set history=100
+
+" use , as : it the hopes of saving my pinky
+nmap , :
+
+" highlight characters that go beyond 80 character limit
+match ErrorMsg '\%>80v.\+'
+
 " Disable some misc vim-go defaults
 let g:go_play_open_browser = 0
 let g:go_fmt_fail_silently = 1
@@ -131,3 +147,8 @@ autocmd filetype go set listchars=tab:\ \ ,trail:~,extends:>,precedes:<,nbsp:.
 
 " Set some filetypes depending on the file extension
 autocmd BufNewFile,BufRead *.pp setfiletype puppet
+autocmd BufRead,BufNewFile *.twig set filetype=jinja
+autocmd BufRead,BufNewFile *.handlebars,*.hbs set ft=html syntax=handlebars
+
+" save swapfiles in ~/.swp
+set dir=~/.swp

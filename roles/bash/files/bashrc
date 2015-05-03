@@ -90,6 +90,14 @@ alias drm="docker rm -f"
 alias dps="docker ps"
 alias db="devbox"
 
+alias cp='cp -i'
+alias ls='ls -G'
+alias mv='mv -i'
+alias rm='rm -i'
+alias b='bundle exec'
+alias mux='rbenv local 2.2.2 && tmuxinator'
+
+
 #**************
 # Bash Prompt
 #**************
@@ -178,3 +186,52 @@ function devbox () {
   fi
   docker exec -it $dockerid /bin/bash
 }
+
+
+#****************
+# PS1
+#****************
+
+git_prompt_vars ()
+{
+    local ref=$(git symbolic-ref HEAD 2> /dev/null);
+    SCM_BRANCH=${ref#refs/heads/};
+    echo -e "$SCM_BRANCH"
+}
+
+make_color ()
+{
+    pre_color="\[\033[";
+    post_color="m\]";
+    echo -e "${pre_color}$1${post_color}"
+}
+
+blue=$(make_color "0;34")
+purple=$(make_color "0;35")
+reset=$(make_color "1;37")
+green=$(make_color "0;32")
+
+# when a process exits with nonzero status,
+# show a sad face and the exit code
+ps1_status ()
+{
+    local status=$?;
+    if [ $status -ne 0 ]; then
+        smiley=":(";
+    else
+        smiley=":)";
+    fi;
+    echo -e "$smiley $status"
+}
+
+PS1="\n${blue}\$(ps1_status) ${purple}\u @ \h ${reset}in ${green}\w\n| \$(git_prompt_vars) | $ ${reset}"
+export PS1
+
+PATH="$PATH:${HOME}/bin"
+PATH="$PATH:/usr/sbin"
+PATH="/usr/local/bin:$PATH"
+PATH="/usr/local/sbin:$PATH"
+export PATH
+
+# load rbenv shims
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
