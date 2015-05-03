@@ -6,5 +6,4 @@
     - 'vim'
     - 'tmux'
     - 'git'
-    - 'symlinks'
     - 'ssh_config'
