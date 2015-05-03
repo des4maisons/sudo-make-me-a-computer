@@ -4,21 +4,8 @@
 # Shell options
 #****************
 
-# Use Vi, not Emacs, style editing
-set editing-mode vi
-set keymap vi
-
-# vi mode in bash
-set -o vi
-
-# Make Tab autocomplete regardless of filename case
-set completion-ignore-case on
-
 # List all matches in case multiple possible completions are possible
 set show-all-if-ambiguous on
-
-# Immediately add a trailing slash when autocompleting symlinks to directories
-set mark-symlinked-directories on
 
 # Do not autocomplete hidden files unless the pattern explicitly begins with a dot
 set match-hidden-files off
@@ -43,9 +30,6 @@ set skip-completed-text on
 set input-meta on
 set output-meta on
 set convert-meta off
-
-# Case-insensitive globbing (used in pathname expansion)
-shopt -s nocaseglob
 
 # Append to the Bash history file, rather than overwriting it
 shopt -s histappend
@@ -94,22 +78,6 @@ export LESS="-i -R"
 export LESSHISTFILE='/dev/null'
 export LESSHISTSIZE=0
 
-#***************
-# Bash Aliases
-#***************
-
-# List all files colorized in long format
-alias l="ls -lF --color"
-
-# List all files colorized in long format, including dot files
-alias la="ls -laF --color"
-
-# List only directories
-alias lsd="ls -lF --color | grep --color=never '^d'"
-
-# Always use color output for `ls`
-alias ls="command ls --color"
-
 # List and kill off tmux sessions
 alias tls='tmux ls'
 alias tks='tmux kill-session -t '
@@ -117,37 +85,10 @@ alias tks='tmux kill-session -t '
 # Alias git to g
 alias g="git"
 
-# APG alias for friendly passwords
-alias apgf='apg -a 0 -n 10 -m 10 -t -E lI10O -M NCSL'
-
 # Docker related aliases
 alias drm="docker rm -f"
 alias dps="docker ps"
 alias db="devbox"
-
-#************
-# GPG agent
-#************
-
-if [ -f "${HOME}/.gnupg/gpg-agent-info" ]; then
-  . "${HOME}/.gnupg/gpg-agent-info"
-  export GPG_AGENT_INFO
-  export SSH_AUTH_SOCK
-fi
-
-#*****************
-# Tab Completion
-#*****************
-
-# Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
-if [ -e "$HOME/.ssh/config" ]; then
-  complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2 | tr ' ' '\n')" scp sftp ssh cs
-fi
-
-# If possible, add tab completion for many more commands
-if [ -f /etc/bash_completion ]; then
-  source /etc/bash_completion
-fi
 
 #**************
 # Bash Prompt
@@ -200,56 +141,6 @@ function __prompt_command() {
 }
 
 export PROMPT_COMMAND=__prompt_command  # Func to gen PS1 after CMDs
-
-#*******************
-# Helper Functions
-#*******************
-
-# Setup an existing repo to use GitHub Enterprise exclusively
-function ghe-setup() {
-  git config user.name "Marvin Pinto"
-  git config user.email marvin@freshbooks.com
-}
-
-# Simple calculator
-function calc() {
-  local result=""
-  result="$(printf "scale=10;$*\n" | bc --mathlib | tr -d '\\\n')"
-  #                       └─ default (when `--mathlib` is used) is 20
-  #
-  if [[ "$result" == *.* ]]; then
-    # improve the output for decimal numbers
-    printf "$result" |
-    sed -e 's/^\./0./'        `# add "0" for cases like ".5"` \
-        -e 's/^-\./-0./'      `# add "0" for cases like "-.5"`\
-        -e 's/0*$//;s/\.$//'   # remove trailing zeros
-  else
-    printf "$result"
-  fi
-  printf "\n"
-}
-
-# Determine size of a file or total size of a directory
-function fs() {
-  if du -b /dev/null > /dev/null 2>&1; then
-    local arg=-sbh
-  else
-    local arg=-sh
-  fi
-  if [[ -n "$@" ]]; then
-    du $arg -- "$@"
-  else
-    du $arg .[^.]* *
-  fi
-}
-
-# `tre` is a shorthand for `tree` with hidden files and color enabled, ignoring
-# the `.git` directory, listing directories first. The output gets piped into
-# `less` with options to preserve color and line numbers, unless the output is
-# small enough for one screen.
-function tre() {
-  tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX
-}
 
 # Function to delete all docker containers
 function drma() {
