@@ -6,8 +6,8 @@ root: '~/projects'
 startup_window: 'goals'
 
 windows:
-  - vi: 'cd "${PROECT}"'
-  - run: 'cd "${PROECT}"'
-  - git: 'cd "${PROECT}"'
-  - ssh: 'cd "${PROECT}"'
+  - vi: ''
+  - run: ''
+  - git: ''
+  - ssh: ''
   - goals: 'vim ~/goals.md'
