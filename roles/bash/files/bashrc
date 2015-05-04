@@ -148,7 +148,7 @@ function __prompt_command() {
   PS1+="${PROMPTCOL}\\$ ${RESET}"
 }
 
-export PROMPT_COMMAND=__prompt_command  # Func to gen PS1 after CMDs
+# export PROMPT_COMMAND=__prompt_command  # Func to gen PS1 after CMDs
 
 # Function to delete all docker containers
 function drma() {
