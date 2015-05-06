@@ -149,6 +149,9 @@ autocmd filetype go set listchars=tab:\ \ ,trail:~,extends:>,precedes:<,nbsp:.
 autocmd BufNewFile,BufRead *.pp setfiletype puppet
 autocmd BufRead,BufNewFile *.twig set filetype=jinja
 autocmd BufRead,BufNewFile *.handlebars,*.hbs set ft=html syntax=handlebars
+autocmd BufRead,BufNewFile *.html.erb set ft=html syntax=erb
+autocmd BufRead,BufNewFile Vagrantfile set filetype=ruby
+autocmd BufRead,BufNewFile *.md,*.markdown set filetype=markdown
 
 " save swapfiles in ~/.swp
 set dir=~/.swp
