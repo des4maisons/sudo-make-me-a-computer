@@ -34,9 +34,6 @@ set convert-meta off
 # Append to the Bash history file, rather than overwriting it
 shopt -s histappend
 
-# Autocorrect typos in path names when using `cd`
-shopt -s cdspell
-
 shopt -s checkwinsize
 
 #***************
@@ -54,7 +51,7 @@ export HISTSIZE=2000
 export HISTFILESIZE=$HISTSIZE
 export HISTCONTROL=ignoredups
 # Make some commands not show up in history
-export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help"
+export HISTIGNORE="ls:cd:cd -:pwd:exit:date"
 
 # Prefer US English and use UTF-8
 export LANG="en_US"
@@ -78,6 +75,10 @@ export LESS="-i -R"
 export LESSHISTFILE='/dev/null'
 export LESSHISTSIZE=0
 
+#***************
+# Bash Aliases
+#***************
+
 # List and kill off tmux sessions
 alias tls='tmux ls'
 alias tks='tmux kill-session -t '
@@ -97,58 +98,61 @@ alias rm='rm -i'
 alias b='bundle exec'
 alias mux='rbenv local 2.2.2 && tmuxinator'
 
+alias tssh='ssh -o StrictHostKeyChecking=no'
+alias tscp='ssh -o StrictHostKeyChecking=no'
+
+# bundler
+alias b="bundle exec"
+
+# knife
+alias k="bundle exec knife"
+
+#************
+# GPG agent
+#************
+
+if [ -f "${HOME}/.gnupg/gpg-agent-info" ]; then
+  . "${HOME}/.gnupg/gpg-agent-info"
+  export GPG_AGENT_INFO
+  export SSH_AUTH_SOCK
+fi
+
 
 #**************
 # Bash Prompt
 #**************
 
-function __prompt_command() {
-  local EXIT="$?"
-  PS1=""
-
-  # Set the terminal title
-  echo -ne "\033]0;${HOSTNAME}\007"
-
-  local RED="\[$(tput setaf 1)\]"
-  local GREEN="\[$(tput setaf 2)\]"
-  local YELLOW="\[$(tput setaf 3)\]"
-  local BLUE="\[$(tput setaf 4)\]"
-  local MAGENTA="\[$(tput setaf 5)\]"
-  local CYAN="\[$(tput setaf 6)\]"
-  local WHITE="\[$(tput setaf 7)\]"
-  local BOLD="\[$(tput bold)\]"
-  local UNDERLINE="\[$(tput sgr 0 1)\]"
-  local RESET="\[$(tput sgr0)\]"
-  local PROMPTCOL="${YELLOW}"
-
-  if [ -f '/.dockerinit' ]; then
-    # We're inside a docker environment
-    PS1+="\n${GREEN}"
-  elif [ `id -u` == 0 ]; then
-    # Bright red prompt if root
-    PS1+="\n${RED}"
-  else
-    PS1+="\n${PROMPTCOL}"
-  fi
-
-  # Second line of bash prompt
-  if [ -f '/.dockerinit' ]; then
-    # We're inside a docker environment
-    PS1+="[docker-\H: \t]${RESET}${PROMPTCOL} \w${RESET}\n"
-  else
-    PS1+="[\H: \t]${RESET}${PROMPTCOL} \w${RESET}\n"
-  fi
-
-  # Print out the last exit code, if it wasn't zero
-  if [ $EXIT != 0 ]; then
-    PS1+="${RED}[${EXIT}]${RESET} "
-  fi
-
-  # Finally print out a $ or #, depending on uid
-  PS1+="${PROMPTCOL}\\$ ${RESET}"
+git_prompt_vars ()
+{
+    local ref=$(git symbolic-ref HEAD 2> /dev/null);
+    SCM_BRANCH=${ref#refs/heads/};
+    echo -e "$SCM_BRANCH"
 }
 
-# export PROMPT_COMMAND=__prompt_command  # Func to gen PS1 after CMDs
+make_color ()
+{
+    pre_color="\[\033[";
+    post_color="m\]";
+    echo -e "${pre_color}$1${post_color}"
+}
+
+blue=$(make_color "0;34")
+purple=$(make_color "0;35")
+reset=$(make_color "1;0")
+green=$(make_color "0;32")
+
+# when a process exits with nonzero status,
+# show a sad face and the exit code
+ps1_status ()
+{
+    local status=$?;
+    if [ $status -ne 0 ]; then
+        smiley=":(";
+    else
+        smiley=":)";
+    fi;
+    echo -e "$smiley $status"
+}
 
 # Function to delete all docker containers
 function drma() {

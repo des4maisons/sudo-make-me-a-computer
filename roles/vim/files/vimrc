@@ -40,6 +40,7 @@ Plugin 'rodjek/vim-puppet'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'docker/docker' , {'rtp': '/contrib/syntax/vim/'}
 Plugin 'fatih/vim-go'
+Plugin 'vim-ruby/vim-ruby'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -70,8 +71,9 @@ set statusline=%Y\ %f\ %M%=%c,%l\/%L
 set incsearch   " incremental search
 set hlsearch    " highlight search items
 set ignorecase  " case-insensitive searches
-"make $ into a word separator
+"make $ and . into word separators
 set iskeyword-=$
+set iskeyword-=.
 
 
 " Remove access to the arrow keys
@@ -150,6 +152,7 @@ autocmd BufNewFile,BufRead *.pp setfiletype puppet
 autocmd BufRead,BufNewFile *.twig set filetype=jinja
 autocmd BufRead,BufNewFile *.handlebars,*.hbs set ft=html syntax=handlebars
 autocmd BufRead,BufNewFile *.html.erb set ft=html syntax=erb
+autocmd BufRead,BufNewFile *.go set ft=go
 autocmd BufRead,BufNewFile Vagrantfile set filetype=ruby
 autocmd BufRead,BufNewFile *.md,*.markdown set filetype=markdown
 
