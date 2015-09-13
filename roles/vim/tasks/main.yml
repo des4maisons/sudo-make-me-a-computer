@@ -22,6 +22,15 @@
     force: yes
     update: yes
 
+- name: 'Create directory for all swapfiles'
+  file:
+    path: '~/.swp'
+    owner: "{{ user }}"
+    group: "{{ group }}"
+    mode: '0700'
+    state: 'directory'
+
+
 - name: 'Put the vimrc file in place'
   copy:
     src: 'vimrc'
