@@ -1,0 +1,14 @@
+---
+- name: 'Install rbenv'
+  homebrew:
+    name: 'rbenv'
+
+- name: 'Install ruby-build'
+  homebrew:
+    name: 'ruby-build'
+
+- name: 'Install ruby 2.2.2'
+  command: 'rbenv install 2.2.2'
+  register: 'install'
+  changed_when: 'install.rc == 0 and "already exists" not in install.stderr'
+  failed_when: 'install.rc != 0 and "already exists" not in install.stderr'

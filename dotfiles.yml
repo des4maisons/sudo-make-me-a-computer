@@ -6,3 +6,5 @@
     - 'vim'
     - 'tmux'
     - 'git'
+    - 'rbenv'
+    - 'tmuxinator'
