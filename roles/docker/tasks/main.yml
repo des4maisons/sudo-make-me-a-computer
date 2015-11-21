@@ -1,0 +1,19 @@
+- name: 'Install docker-machine, compose, and docker'
+  homebrew:
+    name: '{{ item }}'
+  with_items:
+    - 'docker-machine'
+    - 'docker-compose'
+    - 'docker'
+
+- name: 'Create docker machine'
+  command: 'docker-machine create --driver virtualbox default'
+  register: 'create'
+  changed_when: 'create.rc == 0'
+  failed_when: 'create.rc != 0 and "Host already exists" not in create.stderr'
+
+- name: 'Start docker machine'
+  command: 'docker-machine start default'
+  register: 'start'
+  changed_when: 'start.rc == 0'
+  failed_when: 'start.rc != 0 and "already running" not in start.stderr'

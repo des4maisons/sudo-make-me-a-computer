@@ -9,3 +9,5 @@
     - 'git'
     - 'rbenv'
     - 'tmuxinator'
+    - 'apps'
+    - 'docker'

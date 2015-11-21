@@ -1,0 +1,12 @@
+---
+
+- name: 'install apps'
+  homebrew_cask:
+    name: '{{ item }}'
+  with_items:
+    - 'google-chrome'
+    - '1password'
+    - 'dropbox'
+    - 'iterm2'
+    - 'divvy'
+    - 'virtualbox'
