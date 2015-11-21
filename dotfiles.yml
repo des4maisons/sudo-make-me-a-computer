@@ -4,6 +4,7 @@
   roles:
     - 'bash'
     - 'vim'
+    - 'homebrew'
     - 'tmux'
     - 'git'
     - 'rbenv'
