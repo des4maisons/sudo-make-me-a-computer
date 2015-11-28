@@ -18,3 +18,14 @@
     content: '2.2.2'
     dest: '~/.tmuxinator/.ruby-version'
     mode: '0644'
+
+- name: 'Set ruby version to use for tmuxinator install'
+  command: 'rbenv global 2.2.2'
+
+- name: 'Install tmuxinator'
+  gem:
+    name: 'tmuxinator'
+
+- name: 'Update ruby path with newly installed binary'
+  command: 'rbenv rehash'
+  changed_when: false
