@@ -117,42 +117,9 @@ if [ -f "${HOME}/.gnupg/gpg-agent-info" ]; then
   export SSH_AUTH_SOCK
 fi
 
-
-#**************
-# Bash Prompt
-#**************
-
-git_prompt_vars ()
-{
-    local ref=$(git symbolic-ref HEAD 2> /dev/null);
-    SCM_BRANCH=${ref#refs/heads/};
-    echo -e "$SCM_BRANCH"
-}
-
-make_color ()
-{
-    pre_color="\[\033[";
-    post_color="m\]";
-    echo -e "${pre_color}$1${post_color}"
-}
-
-blue=$(make_color "0;34")
-purple=$(make_color "0;35")
-reset=$(make_color "1;0")
-green=$(make_color "0;32")
-
-# when a process exits with nonzero status,
-# show a sad face and the exit code
-ps1_status ()
-{
-    local status=$?;
-    if [ $status -ne 0 ]; then
-        smiley=":(";
-    else
-        smiley=":)";
-    fi;
-    echo -e "$smiley $status"
-}
+#***********
+# Bash
+#***********
 
 # Function to delete all docker containers
 function drma() {
@@ -212,7 +179,7 @@ make_color ()
 
 blue=$(make_color "0;34")
 purple=$(make_color "0;35")
-reset=$(make_color "1;37")
+reset=$(make_color "0;0")
 green=$(make_color "0;32")
 
 # when a process exits with nonzero status,
