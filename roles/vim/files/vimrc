@@ -37,10 +37,10 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'rodjek/vim-puppet'
-Plugin 'flazz/vim-colorschemes'
 Plugin 'docker/docker' , {'rtp': '/contrib/syntax/vim/'}
 Plugin 'fatih/vim-go'
 Plugin 'vim-ruby/vim-ruby'
+Pulign 'altercation/vim-colors-solarized'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
