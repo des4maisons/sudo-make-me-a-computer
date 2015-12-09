@@ -1,0 +1,14 @@
+---
+- name: 'create the ~/.bundler dir'
+  file:
+    path: '~/.bundle'
+    state: 'directory'
+    mode: '0755'
+
+- name: 'Put all the bash-related config files in place'
+  copy:
+    src: 'config'
+    dest: "~/.bundle/config"
+    owner: "{{ user }}"
+    group: "{{ group }}"
+    mode: '0644'
