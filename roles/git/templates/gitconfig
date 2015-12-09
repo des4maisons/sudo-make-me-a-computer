@@ -54,7 +54,7 @@
 [push]
   default = simple
 [user]
-  email = des4maisons+github@gmail.com
+  email = {{ dotfiles_git_email }}
   name = Marguerite des Trois Maisons
 [fetch]
   prune = true

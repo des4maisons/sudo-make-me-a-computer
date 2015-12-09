@@ -7,5 +7,9 @@
     group: "{{ group }}"
     mode: '0644'
   with_items:
-    - 'gitconfig'
     - 'gitignore_global'
+
+- name: 'Create gitconfig'
+  template:
+    src: 'gitconfig'
+    dest: '~/.gitconfig'
