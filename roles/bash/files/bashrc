@@ -90,6 +90,8 @@ alias g="git"
 alias drm="docker rm -f"
 alias dps="docker ps"
 alias db="devbox"
+alias dm="docker-machine"
+alias dm-env='eval $(docker-machine env default)'
 
 alias cp='cp -i'
 alias ls='ls -G'
