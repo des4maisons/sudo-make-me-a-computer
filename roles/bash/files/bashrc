@@ -94,10 +94,9 @@ alias dm="docker-machine"
 alias dm-env='eval $(docker-machine env default)'
 
 alias cp='cp -i'
-alias ls='ls -G'
+alias ls='ls -F'
 alias mv='mv -i'
 alias rm='rm -i'
-alias b='bundle exec'
 alias mux='rbenv local 2.2.2 && tmuxinator'
 
 alias tssh='ssh -o StrictHostKeyChecking=no'
