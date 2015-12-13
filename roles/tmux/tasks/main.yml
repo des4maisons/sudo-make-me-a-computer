@@ -6,3 +6,7 @@
     owner: "{{ user }}"
     group: "{{ group }}"
     mode: '0644'
+
+- name: 'Install tmux'
+  homebrew:
+    name: 'tmux'
