@@ -1,0 +1,9 @@
+---
+
+- name: 'Install system apps'
+  homebrew:
+    name: '{{ item }}'
+  with_items:
+    - 'libxml2'
+    - 'libxslt'
+    - 'libiconv'

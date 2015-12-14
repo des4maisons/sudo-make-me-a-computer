@@ -1,5 +1,7 @@
 ---
 
+- include: 'packages.yml'
+
 - name: 'install apps'
   homebrew_cask:
     name: '{{ item }}'
