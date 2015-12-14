@@ -11,3 +11,4 @@
     - 'tmuxinator'
     - 'apps'
     - 'docker'
+    - 'bundler'
