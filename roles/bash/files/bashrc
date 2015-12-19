@@ -92,6 +92,7 @@ alias dps="docker ps"
 alias db="devbox"
 alias dm="docker-machine"
 alias dm-env='eval $(docker-machine env default)'
+alias dc='docker-compose'
 
 alias cp='cp -i'
 alias ls='ls -F'
