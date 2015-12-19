@@ -7,7 +7,7 @@
     - 'docker'
 
 - name: 'Create docker machine'
-  command: 'docker-machine create --driver virtualbox default'
+  command: 'docker-machine create --driver virtualbox --virtualbox-memory=4096 default'
   register: 'create'
   changed_when: 'create.rc == 0'
   failed_when: 'create.rc != 0 and "Host already exists" not in create.stderr'
