@@ -83,8 +83,12 @@ export LESSHISTSIZE=0
 alias tls='tmux ls'
 alias tks='tmux kill-session -t '
 
-# Alias git to g
+# git
 alias g="git"
+function git-home() {
+  git config user.name 'des4maisons'
+  git config user.email 'des4maisons+github@gmail.com'
+}
 
 # Docker related aliases
 alias drm="docker rm -f"
@@ -208,3 +212,8 @@ export PATH
 
 # load rbenv shims
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+#### Golang
+# For more info on GOPATH, see go help gopath
+export GOPATH="${HOME}/projects/go-workspace"
+PATH="${PATH}:${GOPATH}/bin"
