@@ -7,3 +7,4 @@
     - 'libxml2'
     - 'libxslt'
     - 'libiconv'
+    - 'wget'
