@@ -8,3 +8,4 @@
     - 'libxslt'
     - 'libiconv'
     - 'wget'
+    - 'watch'
