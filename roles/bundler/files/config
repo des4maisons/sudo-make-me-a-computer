@@ -1,4 +1,4 @@
 ---
 BUNDLE_BIN: bin
 BUNDLE_PATH: '.bundle'
-BUNDLE_BUILD__NOKOGIRI: '--with-iconv-dir=/usr/local/include/'
+BUNDLE_BUILD__NOKOGIRI: '--with-iconv-dir=/usr/local/Cellar/libiconv/1.14'
