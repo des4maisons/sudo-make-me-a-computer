@@ -49,7 +49,7 @@ export EDITOR="vim"
 # Larger bash history
 export HISTSIZE=2000
 export HISTFILESIZE=$HISTSIZE
-export HISTCONTROL=ignoredups
+export HISTCONTROL=ignoredups:ignorespace
 # Make some commands not show up in history
 export HISTIGNORE="ls:cd:cd -:pwd:exit:date"
 
