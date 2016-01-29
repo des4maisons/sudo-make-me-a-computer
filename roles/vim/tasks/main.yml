@@ -38,3 +38,18 @@
     owner: "{{ user }}"
     group: "{{ group }}"
     mode: '0644'
+
+- name: 'Create ftplugins directory'
+  file:
+    path: '~/.vim/ftplugin'
+    owner: "{{ user }}"
+    group: "{{ group }}"
+    mode: '0700'
+    state: 'directory'
+
+- name: 'Create yaml ftplugin'
+  copy:
+    src: 'ftplugins-yml'
+    dest: '~/.vim/ftplugin/yaml.vim'
+    owner: "{{ user }}"
+    group: "{{ group }}"
