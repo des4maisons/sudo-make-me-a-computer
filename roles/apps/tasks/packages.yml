@@ -6,7 +6,6 @@
   with_items:
     - 'libxml2'
     - 'libxslt'
-    - 'libiconv'
     - 'wget'
     - 'watch'
     - 'htop'
