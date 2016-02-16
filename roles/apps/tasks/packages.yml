@@ -9,3 +9,4 @@
     - 'libiconv'
     - 'wget'
     - 'watch'
+    - 'htop'
