@@ -23,6 +23,8 @@
   cp = cherry-pick
   st = status --short
   a = add
+  up = add --update
+  update = add --update
 
 [apply]
   # Detect whitespace errors when applying a patch
