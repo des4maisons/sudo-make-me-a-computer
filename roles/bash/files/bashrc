@@ -218,3 +218,10 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 # For more info on GOPATH, see go help gopath
 export GOPATH="${HOME}/projects/go-workspace"
 PATH="${PATH}:${GOPATH}/bin"
+
+
+#*************
+# extras
+#*************
+
+[ -f ${HOME}/.bash_extras ] && . ${HOME}/.bash_extras
