@@ -53,3 +53,10 @@
     dest: '~/.vim/ftplugin/yaml.vim'
     owner: "{{ user }}"
     group: "{{ group }}"
+
+- name: 'Create markdown ftplugin'
+  copy:
+    src: 'ftplugins-markdown'
+    dest: '~/.vim/ftplugin/markdown.vim'
+    owner: "{{ user }}"
+    group: "{{ group }}"
