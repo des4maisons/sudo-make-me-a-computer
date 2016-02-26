@@ -6,6 +6,7 @@
   with_items:
     - 'libxml2'
     - 'libxslt'
+    - 'htop'
     - 'wget'
     - 'watch'
     - 'htop'
