@@ -58,5 +58,10 @@
   copy:
     src: 'ftplugins-markdown'
     dest: '~/.vim/ftplugin/markdown.vim'
+
+- name: 'Create txt ftplugin'
+  copy:
+    src: 'ftplugin-txt'
+    dest: '~/.vim/ftplugin/txt.vim'
     owner: "{{ user }}"
     group: "{{ group }}"
