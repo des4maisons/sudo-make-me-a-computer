@@ -65,3 +65,19 @@
     dest: '~/.vim/ftplugin/txt.vim'
     owner: "{{ user }}"
     group: "{{ group }}"
+
+- name: 'Create syntax directory'
+  file:
+    path: '~/.vim/syntax'
+    owner: "{{ user }}"
+    group: "{{ group }}"
+    mode: '0700'
+    state: 'directory'
+
+- name: 'Add upstart script syntax file'
+  copy:
+    src: 'syntax-upstart'
+    dest: '~/.vim/syntax/upstart.vim'
+    owner: "{{ user }}"
+    group: "{{ group }}"
+    mode: '0600'
