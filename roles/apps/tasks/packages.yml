@@ -10,3 +10,4 @@
     - 'wget'
     - 'watch'
     - 'htop'
+    - 'python3'
