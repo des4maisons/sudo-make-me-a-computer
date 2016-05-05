@@ -81,3 +81,11 @@
     owner: "{{ user }}"
     group: "{{ group }}"
     mode: '0600'
+
+- name: 'Add golang syntax file'
+  copy:
+    src: 'ftplugin-go'
+    dest: '~/.vim/syntax/go.vim'
+    owner: "{{ user }}"
+    group: "{{ group }}"
+    mode: '0600'
