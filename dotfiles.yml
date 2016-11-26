@@ -4,8 +4,8 @@
   roles:
     - 'bash'
     - 'vim'
-    - 'golang'
     - 'homebrew'
+    - 'golang'
     - 'tmux'
     - 'git'
     - 'rbenv'
