@@ -1,2 +1,2 @@
 [all]
-127.0.0.1 ansible_connection=local user=marguerite group=staff dotfiles_git_email=marguerite@pagerduty.com
+127.0.0.1 ansible_connection=local user=des4maisons group=staff dotfiles_git_email=des4maisons@gmail.com
