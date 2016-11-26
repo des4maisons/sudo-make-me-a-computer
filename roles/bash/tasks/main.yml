@@ -17,3 +17,11 @@
     state: absent
   with_items:
     - '~/.bash_login'
+
+- name: 'Create ~/tmp'
+  file:
+    path: '~/tmp'
+    owner: "{{ user }}"
+    group: "{{ group }}"
+    mode: '0700'
+    state: 'directory'
