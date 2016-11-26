@@ -25,7 +25,3 @@
 - name: 'Update all homebrew packages'
   homebrew:
     upgrade_all: true
-
-- name: 'Install brew-cask'
-  homebrew:
-    name: 'caskroom/cask/brew-cask'
