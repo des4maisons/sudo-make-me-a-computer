@@ -1,6 +1,6 @@
-set linebreak
-set wrap
-set nolist
+setlocal linebreak
+setlocal wrap
+setlocal nolist
 
 syn clear ErrorMsg
 
