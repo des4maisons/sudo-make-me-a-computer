@@ -12,3 +12,4 @@
     - 'htop'
     - 'python3'
     - 'gpg'
+    - 'jq'
