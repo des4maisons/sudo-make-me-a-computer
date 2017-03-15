@@ -18,10 +18,6 @@
   register: 'install'
   failed_when: 'install.rc != 0 and "already installed" not in install.stderr'
 
-- name: 'Update homebrew'
-  homebrew:
-    update_homebrew: true
-
 - name: 'Update all homebrew packages'
   homebrew:
     upgrade_all: true
