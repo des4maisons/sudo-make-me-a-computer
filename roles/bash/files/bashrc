@@ -114,6 +114,10 @@ alias b="bundle exec"
 # knife
 alias k="bundle exec knife"
 
+# gpg
+alias gpg-list-keys="gpg --list-keys"
+alias gpg-encrypt="gpg --encrypt -a"
+
 #************
 # GPG agent
 #************
