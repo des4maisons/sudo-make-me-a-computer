@@ -1,5 +1,7 @@
 # vim: set filetype=sh :
 
+export SBT_CREDENTIALS=$HOME/.sbt/credentials
+
 # Source the .profile file, if it exists
 [ -r ~/.profile ] && [ -f ~/.profile ] && source ~/.profile
 

@@ -118,6 +118,14 @@ alias k="bundle exec knife"
 alias gpg-list-keys="gpg --list-keys"
 alias gpg-encrypt="gpg --encrypt -a"
 
+# openssl / certificates
+# show info about certificate signing request
+alias req='openssl req -text -noout -in'
+# show info (from CA) about certificate
+alias cert='openssl x509 -text -noout -in'
+# show info about a certificate key
+alias key='openssl rsa -text -noout -in'
+
 #************
 # GPG agent
 #************
