@@ -1,0 +1,10 @@
+---
+- name: 'Install irssi'
+  homebrew:
+    name: 'irssi'
+
+- name: 'Link in config file'
+  file:
+    src: '~/Dropbox/home-backup/.irssi'
+    dest: '~/.irssi'
+    state: 'link'
