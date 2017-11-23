@@ -39,30 +39,10 @@
     group: "{{ group }}"
     mode: '0644'
 
-- name: 'Create ftplugins directory'
-  file:
-    path: '~/.vim/ftplugin'
-    owner: "{{ user }}"
-    group: "{{ group }}"
-    mode: '0700'
-    state: 'directory'
-
-- name: 'Create yaml ftplugin'
+- name: 'Populate ftplugins directory'
   copy:
-    src: 'ftplugins-yml'
-    dest: '~/.vim/ftplugin/yaml.vim'
-    owner: "{{ user }}"
-    group: "{{ group }}"
-
-- name: 'Create markdown ftplugin'
-  copy:
-    src: 'ftplugins-markdown'
-    dest: '~/.vim/ftplugin/markdown.vim'
-
-- name: 'Create txt ftplugin'
-  copy:
-    src: 'ftplugin-txt'
-    dest: '~/.vim/ftplugin/txt.vim'
+    src: 'ftplugin'
+    dest: '~/.vim/'
     owner: "{{ user }}"
     group: "{{ group }}"
 
@@ -78,14 +58,6 @@
   copy:
     src: 'syntax-upstart'
     dest: '~/.vim/syntax/upstart.vim'
-    owner: "{{ user }}"
-    group: "{{ group }}"
-    mode: '0600'
-
-- name: 'Add golang syntax file'
-  copy:
-    src: 'ftplugin-go'
-    dest: '~/.vim/syntax/go.vim'
     owner: "{{ user }}"
     group: "{{ group }}"
     mode: '0600'
