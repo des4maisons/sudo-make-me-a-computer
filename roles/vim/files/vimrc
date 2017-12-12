@@ -23,6 +23,27 @@ set noerrorbells
 " Don't wrap lines
 set nowrap
 
+" Wrapping, line breaking. Commented for ease of discovery.
+"
+" Together, the following options tell vim to wrap lines visually (via wrap),
+" and only break at characters in the breakat option (via linebreak).
+" `set list` will display `$` at EOL, ^I for tabs, and stuff in `listchars`.
+" You need to disable it in order for wrapping to work.
+" Prevent vim from automatically inserting lines (via textwidth=0,
+" wrapmargin=0)
+" See http://vim.wikia.com/wiki/Word_wrap_without_line_breaks
+"
+" set wrap
+" set linebreak
+" set nolist
+" set textwidth=0
+" set wrapmargin=0
+"
+"
+" For wrapping via newlines, set textwidth:
+"
+" set textwidth=80
+
 " let backspace work past eol, etc
 set backspace=indent,eol,start
 
