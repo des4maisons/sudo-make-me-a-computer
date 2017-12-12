@@ -1,12 +1,12 @@
 ---
 
-- include: 'packages.yml'
+- import_tasks: 'packages.yml'
 
 - name: 'install apps'
   homebrew_cask:
     name: '{{ item }}'
   with_items:
-    - 'google-chrome'
+    #- 'google-chrome'
     - 'dropbox'
     - 'iterm2'
     - 'virtualbox'
