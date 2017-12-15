@@ -155,8 +155,9 @@ set history=100
 " use , as : it the hopes of saving my pinky
 nmap , :
 
-" highlight characters that go beyond 80 character limit
-match ErrorMsg '\%>80v.\+'
+" highlight the 81th column
+set colorcolumn=81
+hi colorcolumn ctermbg=darkgrey
 
 " Disable some misc vim-go defaults
 let g:go_play_open_browser = 0
