@@ -1,11 +1,10 @@
 # Configuring for local laptop
 
-Create an `inventory` file in the root of the repo, setting the following values
-appropriately:
+Create an `inventory` file from the example, changing the values as necessary.
 
 ```
-[all]
-127.0.0.1 ansible_connection=local user=des4maisons group=staff dotfiles_git_email=des4maisons+github@gmail.com
+cp inventory.example inventory
+vim inventory
 ```
 
 # Running
