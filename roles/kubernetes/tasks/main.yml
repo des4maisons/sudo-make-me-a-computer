@@ -1,0 +1,11 @@
+---
+- name: 'Install kubectl'
+  skip: true
+  homebrew:
+    name: 'kubernetes'
+
+- name: 'Link in config file'
+  file:
+    src: '~/Dropbox/home-backup/.kube'
+    dest: '~/.kube'
+    state: 'link'

@@ -237,3 +237,5 @@ PATH="${PATH}:${GOPATH}/bin"
 #*************
 
 [ -f ${HOME}/.bash_extras ] && . ${HOME}/.bash_extras
+
+export KUBECONFIG=$KUBECONFIG:~/.kube/config-preview
