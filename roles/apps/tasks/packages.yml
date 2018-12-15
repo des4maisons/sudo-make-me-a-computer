@@ -2,16 +2,15 @@
 
 - name: 'Install system apps'
   homebrew:
-    name: '{{ item }}'
-  with_items:
-    - 'libxml2'
-    - 'libxslt'
-    - 'htop'
-    - 'wget'
-    - 'watch'
-    - 'htop'
-    - 'python3'
-    - 'gpg'
-    - 'jq'
-    - 'coreutils'
-    - 'awscli'
+    name:
+      - 'libxml2'
+      - 'libxslt'
+      - 'htop'
+      - 'wget'
+      - 'watch'
+      - 'htop'
+      - 'python3'
+      - 'gpg'
+      - 'jq'
+      - 'coreutils'
+      - 'awscli'

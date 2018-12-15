@@ -1,6 +1,5 @@
 - name: 'Install docker stuff'
   homebrew:
-    name: '{{ item }}'
-  with_items:
-    - 'docker-compose'
-    - 'docker' # docker-for-mac
+    name:
+      - 'docker-compose'
+      - 'docker' # docker-for-mac

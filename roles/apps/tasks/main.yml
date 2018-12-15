@@ -4,10 +4,7 @@
 
 - name: 'install apps'
   homebrew_cask:
-    name: '{{ item }}'
-  with_items:
-    #- 'google-chrome'
-    - 'dropbox'
-    - 'iterm2'
-    - 'virtualbox'
-    - 'vagrant'
+    name:
+      #- 'iterm2'
+      - 'virtualbox'
+      - 'vagrant'
