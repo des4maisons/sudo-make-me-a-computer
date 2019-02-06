@@ -233,6 +233,14 @@ PATH="${PATH}:${GOPATH}/bin"
 
 
 #*************
+# Sumo
+#*************
+
+sumo () {
+  ( cd ~/.livetail; unbuffer ./livetail $@; )
+}
+
+#*************
 # extras
 #*************
 

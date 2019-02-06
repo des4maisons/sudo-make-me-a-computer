@@ -1,0 +1,20 @@
+---
+- name: 'Create a directory in which to run sumo livetail'
+  file:
+    path: '~/.livetail'
+    owner: "{{ user }}"
+    group: "{{ group }}"
+    mode: '0700'
+    state: 'directory'
+
+- name: 'Download the livetail zip bundle'
+  get_url:
+    url: 'https://github.com/SumoLogic/livetail-cli/releases/download/2.0/livetail_mac_os.zip'
+    dest: '~/.livetail/livetail2.zip'
+
+- name: 'Unzip the livetail zip bundle'
+  unarchive:
+    src: '~/.livetail/livetail2.zip'
+    creates: '~/.livetail/livetail'
+    dest: '~/.livetail/livetail'
+    mode: '0700'
