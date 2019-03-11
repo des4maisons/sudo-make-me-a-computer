@@ -117,6 +117,7 @@ alias k="bundle exec knife"
 # gpg
 alias gpg-list-keys="gpg --list-keys"
 alias gpg-encrypt="gpg --encrypt -a"
+alias gpg-decrypt="gpg --decrypt"
 
 # openssl / certificates
 # show info about certificate signing request
