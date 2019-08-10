@@ -75,6 +75,9 @@ export LESS="-i -R"
 export LESSHISTFILE='/dev/null'
 export LESSHISTSIZE=0
 
+# only run `homebrew update` every week
+export HOMEBREW_AUTO_UPDATE_SECS=604800
+
 #***************
 # Bash Aliases
 #***************
