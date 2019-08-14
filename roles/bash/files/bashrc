@@ -225,6 +225,7 @@ PATH="$PATH:${HOME}/bin"
 PATH="$PATH:/usr/sbin"
 PATH="/usr/local/bin:$PATH"
 PATH="/usr/local/sbin:$PATH"
+PATH="$PATH:${HOME}/Library/Python/3.7/bin"
 export PATH
 
 # load rbenv shims
