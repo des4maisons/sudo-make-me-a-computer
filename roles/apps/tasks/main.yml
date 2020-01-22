@@ -8,3 +8,4 @@
       #- 'iterm2'
       - 'virtualbox'
       - 'vagrant'
+      - 'terminal-notifier'
