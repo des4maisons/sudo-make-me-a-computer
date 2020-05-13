@@ -82,10 +82,6 @@ export HOMEBREW_AUTO_UPDATE_SECS=604800
 # Bash Aliases
 #***************
 
-# List and kill off tmux sessions
-alias tls='tmux ls'
-alias tks='tmux kill-session -t '
-
 # git
 alias g="git"
 function git-home() {
@@ -93,23 +89,10 @@ function git-home() {
   git config user.email 'des4maisons+github@gmail.com'
 }
 
-# Docker related aliases
-alias drm="docker rm -f"
-alias dps="docker ps"
-alias db="devbox"
-alias dm="docker-machine"
-alias dc="docker-compose"
-alias dm-env='eval $(docker-machine env default)'
-alias dc='docker-compose'
-
 alias cp='cp -i'
 alias ls='ls -F'
 alias mv='mv -i'
 alias rm='rm -i'
-alias mux='rbenv local 2.2.2 && tmuxinator'
-
-alias tssh='ssh -o StrictHostKeyChecking=no'
-alias tscp='ssh -o StrictHostKeyChecking=no'
 
 # bundler
 alias b="bundle exec"
