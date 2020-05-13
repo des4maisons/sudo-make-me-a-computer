@@ -113,6 +113,10 @@ alias cert='openssl x509 -text -noout -in'
 # show info about a certificate key
 alias key='openssl rsa -text -noout -in'
 
+# desktop icons
+alias desktop-clear='defaults write com.apple.finder CreateDesktop false && killall Finder'
+alias desktop-restore='defaults write com.apple.finder CreateDesktop true && killall Finder'
+
 #************
 # GPG agent
 #************
