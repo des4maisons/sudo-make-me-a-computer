@@ -117,6 +117,9 @@ alias key='openssl rsa -text -noout -in'
 alias desktop-clear='defaults write com.apple.finder CreateDesktop false && killall Finder'
 alias desktop-restore='defaults write com.apple.finder CreateDesktop true && killall Finder'
 
+# camera
+alias camera-restart="sudo killall VDCAssistant"
+
 #************
 # GPG agent
 #************
