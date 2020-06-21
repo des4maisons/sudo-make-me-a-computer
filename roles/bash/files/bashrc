@@ -120,6 +120,16 @@ alias desktop-restore='defaults write com.apple.finder CreateDesktop true && kil
 # camera
 alias camera-restart="sudo killall VDCAssistant"
 
+# audio processing
+# extract audio from a video
+function extract-audio() {
+  local input=$1
+  local output=$2
+  docker run --rm -it -v $(pwd):/workdir linuxserver/ffmpeg \
+   -i "/workdir/$input" \
+   "/workdir/$output"
+}
+
 #************
 # GPG agent
 #************
