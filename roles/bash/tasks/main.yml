@@ -9,7 +9,13 @@
   with_items:
     - 'bash_profile'
     - 'profile'
-    - 'bashrc'
+
+- name: 'Symlink ~/.bashrc to managed bashrc'
+  file:
+    src: "{{ role_path }}/files/bashrc"
+    dest: '~/.bashrc'
+    state: 'link'
+    force: 'yes'
 
 - name: 'Ensure that these files do not exist'
   file:
