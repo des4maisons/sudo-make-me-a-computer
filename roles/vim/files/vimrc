@@ -179,7 +179,7 @@ autocmd BufRead,BufNewFile *.html.erb set ft=html syntax=erb
 autocmd BufRead,BufNewFile *.go set ft=go
 autocmd BufRead,BufNewFile Vagrantfile set filetype=ruby
 autocmd BufRead,BufNewFile *.md,*.markdown set filetype=markdown
-autocmd BufRead,BufNewFile *.ex set filetype=elixir
+autocmd BufRead,BufNewFile *.ex,*exs set filetype=elixir
 
 " save swapfiles in ~/.swp
 set dir=~/.swp
