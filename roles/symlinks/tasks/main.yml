@@ -13,27 +13,6 @@
     state: 'link'
     force: 'yes'
 
-- name: 'symlink ~/Dropbox/freshbooks to ~/freshbooks'
-  file:
-    src: '~/Dropbox/freshbooks'
-    dest: '~/freshbooks'
-    state: 'link'
-    force: 'yes'
-
-- name: 'symlink ~/Dropbox/projects/password-store to ~/.password-store'
-  file:
-    src: '~/Dropbox/projects/password-store'
-    dest: '~/.password-store'
-    state: 'link'
-    force: 'yes'
-
-- name: 'symlink ~/Dropbox/projects/tmuxinator-templates to ~/.tmuxinator'
-  file:
-    src: '~/Dropbox/projects/tmuxinator-templates'
-    dest: '~/.tmuxinator'
-    state: 'link'
-    force: 'yes'
-
 - name: 'Create the ~/tmp directory'
   file:
     dest: '~/tmp'
