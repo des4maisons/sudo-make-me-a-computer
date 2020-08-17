@@ -108,6 +108,13 @@ inoremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
 
+" shortcut to insert date
+" not in insert mode
+:nnoremap <F5> "=strftime("%Y-%m-%d")<CR>P
+" in insert mode
+:inoremap <F5> <C-R>=strftime("%Y-%m-%d")<CR>
+
+
 " Respect modeline in files
 set modeline
 set modelines=1
@@ -178,6 +185,7 @@ autocmd BufRead,BufNewFile *.html.erb set ft=html syntax=erb
 autocmd BufRead,BufNewFile *.go set ft=go
 autocmd BufRead,BufNewFile Vagrantfile set filetype=ruby
 autocmd BufRead,BufNewFile *.md,*.markdown set filetype=markdown
+autocmd BufRead,BufNewFile *.ledger set filetype=ledger
 
 " save swapfiles in ~/.swp
 set dir=~/.swp
