@@ -61,4 +61,4 @@
     mode: '0600'
 
 - name: 'Install vim plugins'
-    shell: 'vim +PluginInstall +qall'
+  shell: 'vim +PluginInstall +qall'
