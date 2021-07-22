@@ -249,7 +249,7 @@ PATH="$PATH:${HOME}/Library/Python/3.7/bin"
 export PATH
 
 # load rbenv shims
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+# if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 #### Golang
 # For more info on GOPATH, see go help gopath
