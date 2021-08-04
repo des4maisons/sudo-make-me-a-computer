@@ -140,6 +140,10 @@ alias desktop-restore='defaults write com.apple.finder CreateDesktop true && kil
 # camera
 alias camera-restart="sudo killall VDCAssistant"
 
+# python
+# when brew intsalls python3 it installs the symlinks to the binaries with a 3 at the end.
+alias pip=pip3
+
 # audio processing
 # extract audio from a video
 function extract-audio() {
