@@ -5,9 +5,5 @@
 - name: 'install apps'
   homebrew_cask:
     name:
-      #- 'iterm2'
       - 'virtualbox'
       - 'vagrant'
-      - 'terminal-notifier'
-      - 'aws-vault' # wrapper around aws that manages sessions & keys etc
-      - 'jid'  # interactive jq!
