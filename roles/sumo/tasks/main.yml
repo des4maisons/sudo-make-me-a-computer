@@ -16,5 +16,5 @@
   unarchive:
     src: '~/.livetail/livetail2.zip'
     creates: '~/.livetail/livetail'
-    dest: '~/.livetail/livetail'
+    dest: '~/.livetail/'
     mode: '0700'
