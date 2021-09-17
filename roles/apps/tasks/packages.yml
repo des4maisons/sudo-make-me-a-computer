@@ -17,3 +17,6 @@
       - 'tree'
       - 'mtr'
       - 'jid'
+      - 'kubectl'
+      - 'k9s'
+      - 'aws-okta'
