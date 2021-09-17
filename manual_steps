@@ -10,3 +10,5 @@
       IdentitiesOnly yes
       IdentityFile ~/.ssh/id_rsa_home
     ```
+- configure lock/password settings for 1password
+- keybase, configure logout settings
