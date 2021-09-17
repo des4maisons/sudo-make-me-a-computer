@@ -2,3 +2,11 @@
 - Add fingerprint
 - Enable "touch to click"
 - Set default shell to bash
+- Set up push access to home github
+    ```
+    Host stompy.github.com
+      HostName github.com
+      User git
+      IdentitiesOnly yes
+      IdentityFile ~/.ssh/id_rsa_home
+    ```
