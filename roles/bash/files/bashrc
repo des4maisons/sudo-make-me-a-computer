@@ -97,6 +97,7 @@ export HOMEBREW_AUTO_UPDATE_SECS=604800
 # asdf
 #***************
 . $HOME/.asdf/asdf.sh
+. $(brew --prefix asdf)/libexec/asdf.sh
 
 #***************
 # Bash Aliases

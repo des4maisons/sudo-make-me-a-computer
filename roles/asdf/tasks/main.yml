@@ -1,0 +1,17 @@
+---
+- name: 'Install system apps'
+  homebrew:
+    name:
+      - 'asdf'
+
+- name: 'install asdf plugins'
+  command: 'asdf plugin add {{ item }}'
+  args:
+    creates: '${HOME}/.asdf/plugins/{{ item }}'
+  loop:
+    - ruby
+    - python
+    - terraform
+    - tflint
+    - golang
+    - terraform-docs
