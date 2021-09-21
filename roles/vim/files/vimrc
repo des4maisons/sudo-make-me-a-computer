@@ -71,6 +71,10 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'elixir-editors/vim-elixir'
+Plugin 'leafgarland/typescript-vim', {'for': 'typescript'}
+Plugin 'hashivim/vim-terraform', {'for': 'terraform'}
+Plugin 'ledger/vim-ledger', {'for': 'ledger'}
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
