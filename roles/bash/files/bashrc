@@ -96,7 +96,6 @@ export HOMEBREW_AUTO_UPDATE_SECS=604800
 #***************
 # asdf
 #***************
-. $HOME/.asdf/asdf.sh
 . $(brew --prefix asdf)/libexec/asdf.sh
 
 #***************
@@ -276,4 +275,3 @@ sumo () {
 
 [ -f ${HOME}/.bash_extras ] && . ${HOME}/.bash_extras
 
-export KUBECONFIG=$KUBECONFIG:~/.kube/config-marg-eks
