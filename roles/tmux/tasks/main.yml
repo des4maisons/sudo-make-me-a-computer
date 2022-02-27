@@ -8,5 +8,12 @@
     mode: '0644'
 
 - name: 'Install tmux'
+  when: 'ansible_pkg_mgr == "brew"'
   homebrew:
     name: 'tmux'
+
+- name: 'Install tmux'
+  when: 'ansible_pkg_mgr != "brew"'
+  package:
+    name: 'tmux'
+  become: yes

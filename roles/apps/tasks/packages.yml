@@ -1,6 +1,7 @@
 ---
 
 - name: 'Install system apps'
+  when: 'ansible_pkg_mgr == "brew"'
   homebrew:
     name:
       - 'libxml2'
@@ -20,3 +21,10 @@
       - 'kubectl'
       - 'k9s'
       - 'aws-okta'
+
+- name: 'Install system apps'
+  when: 'ansible_pkg_mgr != "brew"'
+  package:
+    name:
+      - 'jq'
+  become: yes

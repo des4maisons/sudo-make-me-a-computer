@@ -1,0 +1,9 @@
+---
+- hosts: all
+  connection: local
+  roles:
+    - 'bash'
+    - 'vim'
+    - 'tmux'
+    - 'git'
+    - 'apps'
