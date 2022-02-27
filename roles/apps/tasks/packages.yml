@@ -30,4 +30,5 @@
   package:
     name:
       - 'jq'
+      - 'libdvd-pkg'
   become: yes
