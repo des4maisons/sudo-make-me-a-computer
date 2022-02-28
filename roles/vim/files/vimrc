@@ -192,6 +192,8 @@ autocmd BufRead,BufNewFile Vagrantfile set filetype=ruby
 autocmd BufRead,BufNewFile *.md,*.markdown set filetype=markdown
 autocmd BufRead,BufNewFile *.ex,*exs set filetype=elixir
 autocmd BufRead,BufNewFile *.ledger set filetype=ledger
+autocmd BufRead,BufNewFile *.tf set filetype=terraform
+autocmd BufRead,BufNewFile *.yaml,*.yml set filetype=yaml
 
 " save swapfiles in ~/.swp
 set dir=~/.swp

@@ -25,6 +25,8 @@
   a = add
   up = add --update
   update = add --update
+  pfwlo = push --force-with-lease origin HEAD
+  po = push origin HEAD
 
 [apply]
   # Detect whitespace errors when applying a patch

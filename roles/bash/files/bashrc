@@ -98,6 +98,10 @@ export HOMEBREW_AUTO_UPDATE_SECS=604800
 #***************
 . $(brew --prefix asdf)/libexec/asdf.sh
 
+
+# Autocompletion
+source <(kubectl completion bash)
+
 #***************
 # Bash Aliases
 #***************
@@ -117,8 +121,8 @@ alias rm='rm -i'
 # bundler
 alias b="bundle exec"
 
-# knife
-alias k="bundle exec knife"
+# k8s
+alias k=kubectl
 
 # gpg
 alias gpg-list-keys="gpg --list-keys"
@@ -143,6 +147,9 @@ alias camera-restart="sudo killall VDCAssistant"
 # python
 # when brew intsalls python3 it installs the symlinks to the binaries with a 3 at the end.
 alias pip=pip3
+
+# docker
+alias dc=docker-compose
 
 # audio processing
 # extract audio from a video
