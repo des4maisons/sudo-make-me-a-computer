@@ -25,10 +25,24 @@
       - 'telnet'
       - 'bash-completion'
 
+- name: 'Add apt repositories'
+  when: 'ansible_pkg_mgr != "brew"'
+  ansible.builtin.apt_repository:
+    repo: '{{ item }}'
+  loop:
+    - 'ppa:mbudde/ledger'
+
 - name: 'Install system apps'
   when: 'ansible_pkg_mgr != "brew"'
   package:
     name:
       - 'jq'
       - 'libdvd-pkg'
+      - 'ffmpeg'
+      - 'vim'
+      - 'curl'
+      - 'ledger'
+      - 'simple-scan'
+      - 'gnome-tweaks' # to specify keyboard mappings?
+      - 'xclip' # for pbcopy, pbpaste
   become: yes

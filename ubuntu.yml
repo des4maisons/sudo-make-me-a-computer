@@ -7,3 +7,6 @@
     - 'tmux'
     - 'git'
     - 'apps'
+    - 'mtrack'
+  vars:
+    mtrack_repo_path: "{{ '~/software/xf86-input-mtrack' | expanduser }}"

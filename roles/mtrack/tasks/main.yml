@@ -1,0 +1,68 @@
+---
+
+
+- name: 'Install mtrack dependencies'
+  when: 'ansible_pkg_mgr != "brew"'
+  package:
+    name:
+      - 'build-essential'
+      - 'pkg-config'
+      - 'libmtdev-dev'
+      - 'mtdev-tools'
+      - 'xserver-xorg-dev'
+      - 'xutils-dev'
+
+
+- name: 'create ~/software'
+  ansible.builtin.file:
+    path: '~/software'
+    state: 'directory'
+
+
+- name: 'check out mtrack repo'
+  ansible.builtin.git:
+    repo: 'https://github.com/p2rkw/xf86-input-mtrack.git'
+    dest: '{{ mtrack_repo_path }}'
+    update: 'no'
+
+- name: 'configure mtrack'
+  command: './configure --with-xorg-module-dir=/usr/lib/xorg/modules'
+  args:
+    chdir: '{{ mtrack_repo_path }}'
+    creates: '{{ mtrack_repo_path }}/Makefile'
+
+- name: 'make mtrack'
+  command: 'make'
+  args:
+    chdir: '{{ mtrack_repo_path }}'
+    creates: '{{ mtrack_repo_path }}/mtrack-test'
+
+- name: 'install mtrack'
+  command: 'make install'
+  args:
+    chdir: '{{ mtrack_repo_path }}'
+    creates: '/usr/lib/xorg/modules/input/mtrack_drv.so'
+  become: 'yes'
+
+- name: 'configure mtrack'
+  ansible.builtin.copy:
+    src: 'mtrack.conf'
+    dest: '/usr/share/X11/xorg.conf.d/50-mtrack.conf'
+    owner: 'root'
+    group: 'root'
+    mode: '0644'
+  become: 'yes'
+
+- name: 'Add myself to the input user group'
+  user:
+    name: '{{ ansible_user_id }}'
+    group: 'input'
+    append: 'yes'
+  become: 'yes'
+
+- name: 'configure smooth scrolling for firefox'
+  ansible.builtin.lineinfile:
+    path: '/etc/profile.d/use-xinput2.sh'
+    regexp: '^export MOZ_USE_XINPUT2='
+    line: 'export MOZ_USE_XINPUT2=1'
+  become: 'yes'
