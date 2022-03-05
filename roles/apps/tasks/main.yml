@@ -1,3 +1,25 @@
 ---
 
-- import_tasks: 'packages.yml'
+- name: 'Install system apps'
+  homebrew:
+    name:
+      - 'libxml2'
+      - 'libxslt'
+      - 'htop'
+      - 'wget'
+      - 'watch'
+      - 'python3'
+      - 'gpg'
+      - 'jq'
+      - 'coreutils'
+      - 'awscli'
+      - 'pstree'
+      - 'tree'
+      - 'mtr'
+      - 'jid'
+      - 'kubectl'
+      - 'k9s'
+      - 'aws-okta'
+      - 'docker-credentials-helper-ecr'
+      - 'telnet'
+      - 'bash-completion'

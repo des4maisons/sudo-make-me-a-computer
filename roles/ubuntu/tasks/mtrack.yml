@@ -1,8 +1,5 @@
 ---
-
-
 - name: 'Install mtrack dependencies'
-  when: 'ansible_pkg_mgr != "brew"'
   package:
     name:
       - 'build-essential'
