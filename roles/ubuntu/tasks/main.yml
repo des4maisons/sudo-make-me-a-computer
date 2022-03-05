@@ -4,3 +4,4 @@
 - include: 'mtrack.yml'
 - include: 'keybase.yml'
 - include: '1password.yml'
+- include: 'dropbox.yml'

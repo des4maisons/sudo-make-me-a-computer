@@ -11,4 +11,7 @@
       - 'simple-scan'
       - 'gnome-tweaks' # to specify keyboard mappings?
       - 'xclip' # for pbcopy, pbpaste
+      - 'audacity'
+      - 'zoom'
+      - 'gthumb'
   become: yes

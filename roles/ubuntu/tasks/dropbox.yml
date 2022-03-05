@@ -1,0 +1,25 @@
+---
+
+- name: 'Add dropbox signing key'
+  ansible.builtin.apt_key:
+    id: '1C61A2656FB57B7E4DE0F4C1FC918B335044912E'
+    keyserver: 'pgp.mit.edu'
+  become: yes
+
+- name: 'Add dropbox ubuntu repo'
+  copy:
+    dest: '/etc/apt/sources.list.d/dropbox.list'
+    content: |
+      deb https://linux.dropbox.com/ubuntu disco main
+    owner: 'root'
+    group: 'root'
+    mode: '0644'
+  become: yes
+  notify: 'linux_apt-get-update'
+
+- meta: flush_handlers
+
+- name: 'install dropbox'
+  become: yes
+  package:
+    name: 'dropbox'
