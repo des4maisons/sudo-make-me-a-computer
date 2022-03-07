@@ -154,6 +154,9 @@ set scrolloff=3
 
 " alias W to w
 command W w
+command Wqa wqa
+command Wa wa
+command Wq wq
 
 " set the grep program to git-grep. no color so as not to confuse parser
 set grepprg=git\ grep\ --no-color\ -n
