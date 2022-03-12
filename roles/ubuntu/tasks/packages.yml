@@ -15,3 +15,8 @@
       - 'zoom'
       - 'gthumb'
   become: yes
+
+- name: 'Install audacity'
+  community.general.snap:
+    name:
+      - 'audacity'
