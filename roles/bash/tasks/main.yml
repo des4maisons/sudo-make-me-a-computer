@@ -31,3 +31,11 @@
     group: "{{ group }}"
     mode: '0700'
     state: 'directory'
+
+- name: 'Create ~/bin'
+  file:
+    path: '~/bin'
+    owner: "{{ user }}"
+    group: "{{ group }}"
+    mode: '0700'
+    state: 'directory'
