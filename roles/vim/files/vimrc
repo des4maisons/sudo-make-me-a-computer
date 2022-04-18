@@ -198,6 +198,7 @@ autocmd BufRead,BufNewFile *.ledger set filetype=ledger
 autocmd BufRead,BufNewFile *.tf set filetype=terraform
 autocmd BufRead,BufNewFile *.yaml,*.yml set filetype=yaml
 autocmd BufRead,BufNewFile *.txt set filetype=txt
+autocmd BufRead,BufNewFile *.ts set filetype=typescript
 
 " save swapfiles in ~/.swp
 set dir=~/.swp
