@@ -1,5 +1,7 @@
 ---
 
+- include: 'user.yml'
+- include: 'bash.yml'
 - include: 'packages.yml'
 - include: 'mtrack.yml'
 - include: 'keybase.yml'

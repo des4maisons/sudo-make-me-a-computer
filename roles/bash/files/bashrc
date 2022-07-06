@@ -281,4 +281,6 @@ sumo () {
 #*************
 
 [ -f ${HOME}/.bash_extras ] && . ${HOME}/.bash_extras
+# OS-specific extras
+[ -f ${HOME}/.bash_extras-os ] && . ${HOME}/.bash_extras-os
 

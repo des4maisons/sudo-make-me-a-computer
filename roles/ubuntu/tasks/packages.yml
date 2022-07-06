@@ -9,7 +9,7 @@
       - 'curl'
       - 'ledger'
       - 'simple-scan'
-      - 'gnome-tweaks' # to specify keyboard mappings?
+      - 'gnome-tweaks' # to allow cmd key remapping
       - 'xclip' # for pbcopy, pbpaste
       - 'audacity'
       - 'zoom'

@@ -8,6 +8,7 @@
       - 'mtdev-tools'
       - 'xserver-xorg-dev'
       - 'xutils-dev'
+  become: yes
 
 
 - name: 'create ~/software'
@@ -53,8 +54,14 @@
 - name: 'Add myself to the input user group'
   user:
     name: '{{ ansible_user_id }}'
-    group: 'input'
+    groups: 'input'
     append: 'yes'
+  become: 'yes'
+
+- name: 'Create use-xinput2.sh if it doesnt exist'
+  ansible.builtin.file:
+    path: '/etc/profile.d/use-xinput2.sh'
+    state: 'touch'
   become: 'yes'
 
 - name: 'configure smooth scrolling for firefox'

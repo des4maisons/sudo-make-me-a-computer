@@ -1,0 +1,5 @@
+---
+- name: 'create ~/.bash_extras-os'
+  ansible.builtin.copy:
+    src: 'bash_extras-os'
+    dest: '~/.bash_extras-os'

@@ -1,6 +1,13 @@
-- Map caps lock to control
+# ubuntu
+- set keyboard to dvorak
+- run "tweaks" program, set Caps to "extra CTRL"; under "Alt & Win", set "CTl is mapped to win and usual ctrl"
+- sign into 1password
+- sign into dropbox, configure selective sync
+
+# mac
 - Add fingerprint
 - Enable "touch to click"
+- Map caps lock to control
 - Set default shell to bash
 - Set up push access to home github
     ```

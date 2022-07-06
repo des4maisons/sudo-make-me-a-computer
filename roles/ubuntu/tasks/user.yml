@@ -1,0 +1,6 @@
+---
+- name: 'Set my primary group'
+  user:
+    name: '{{ ansible_user_id }}'
+    group: '{{ group }}'
+  become: 'yes'
