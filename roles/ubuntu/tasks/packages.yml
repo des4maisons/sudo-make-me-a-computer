@@ -12,8 +12,9 @@
       - 'gnome-tweaks' # to allow cmd key remapping
       - 'xclip' # for pbcopy, pbpaste
       - 'audacity'
-      - 'zoom'
+        #- 'zoom'
       - 'gthumb'
+      - 'python3'
   become: yes
 
 - name: 'Install audacity'

@@ -96,11 +96,14 @@ export HOMEBREW_AUTO_UPDATE_SECS=604800
 #***************
 # asdf
 #***************
-. $(brew --prefix asdf)/libexec/asdf.sh
-
+if which brew > /dev/null; then
+  . $(brew --prefix asdf)/libexec/asdf.sh
+fi
 
 # Autocompletion
-source <(kubectl completion bash)
+if which foo > /dev/null; then
+  source <(kubectl completion bash)
+fi
 
 #***************
 # Bash Aliases
@@ -151,15 +154,6 @@ alias pip=pip3
 # docker
 alias dc=docker-compose
 
-# audio processing
-# extract audio from a video
-function extract-audio() {
-  local input=$1
-  local output=$2
-  docker run --rm -it -v $(pwd):/workdir linuxserver/ffmpeg \
-   -i "/workdir/$input" \
-   "/workdir/$output"
-}
 
 #************
 # GPG agent
@@ -175,43 +169,12 @@ fi
 # Bash
 #***********
 
-# Function to delete all docker containers
-function drma() {
-  docker rm -f $(docker ps -aq)
-  docker rmi $(docker images | grep "^<none>" | awk "{print $3}")
+# grab transcription from json output of Amazon Transcribe
+function transcript ()
+{
+  local input_file="$1"
+  jq '.results | .transcripts[].transcript' < "${input_file}"
 }
-
-# Bash function to attach to, or spin up a new (named) docker container
-function devbox () {
-  local boxname=$1
-  local dockerimage=$2
-
-  if [ -z "$boxname" ]; then
-    echo "usage: devbox <box name> [docker image]"
-    return 1
-  fi
-
-  if [ -z "$dockerimage" ]; then
-    dockerimage="marvin/devbox"
-  fi
-
-  local dockerid=$(docker ps -aq --filter=name=$boxname)
-  if [ "$dockerid" != "" ]; then
-    echo "Attaching to existing docker container ${dockerid}"
-  else
-    echo "Creating new docker container"
-    dockerid=$(docker run -dit \
-      -e "HOSTNAME=${boxname}" \
-      --name $boxname \
-      --hostname ${boxname} \
-      -v /home/marvin:/var/shared \
-      -v $(dirname $SSH_AUTH_SOCK):$(dirname $SSH_AUTH_SOCK) \
-      -e SSH_AUTH_SOCK=$SSH_AUTH_SOCK \
-      ${dockerimage})
-  fi
-  docker exec -it $dockerid /bin/bash
-}
-
 
 #****************
 # PS1
