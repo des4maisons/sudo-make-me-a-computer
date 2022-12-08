@@ -15,6 +15,7 @@
         #- 'zoom'
       - 'gthumb'
       - 'python3'
+      - 'docker.io'
   become: yes
 
 - name: 'Install audacity'
