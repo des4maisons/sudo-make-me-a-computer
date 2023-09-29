@@ -11,7 +11,7 @@
   loop:
     - ruby
     - python
-    - terraform
+      #    - terraform
     - tflint
     - golang
     - terraform-docs
@@ -27,7 +27,7 @@
     creates: '${HOME}/.asdf/installs/{{ item.package }}/{{ item.version }}'
   loop:
     - { package: 'ruby', version: '2.7.3' }
-    - { package: 'terraform', version: '0.14.6' }
+      #    - { package: 'terraform', version: '0.14.6' }
     #- { package: 'nodejs', version: '14.16.0' }
     - { package: 'yarn', version: '1.22.10' }
     #- { package: 'erlang', version: '23.1.1' }

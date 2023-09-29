@@ -173,7 +173,7 @@ fi
 function transcript ()
 {
   local input_file="$1"
-  jq '.results | .transcripts[].transcript' < "${input_file}"
+  jq -r '.results | .transcripts[].transcript' < "${input_file}"
 }
 
 #****************
