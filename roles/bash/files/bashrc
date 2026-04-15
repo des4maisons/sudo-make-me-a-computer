@@ -93,6 +93,24 @@ fi
 # only run `homebrew update` every week
 export HOMEBREW_AUTO_UPDATE_SECS=604800
 
+PATH="$PATH:${HOME}/bin"
+PATH="$PATH:/usr/sbin"
+PATH="/usr/local/bin:$PATH"
+PATH="/usr/local/sbin:$PATH"
+PATH="$PATH:${HOME}/Library/Python/3.7/bin"
+PATH="$PATH:${HOME}/.local/bin"
+PATH="$PATH:${HOME}/.rd/bin"
+export PATH
+
+# load rbenv shims
+# if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+#### Golang
+# For more info on GOPATH, see go help gopath
+export GOPATH="${HOME}/projects/go-workspace"
+PATH="${PATH}:${GOPATH}/bin"
+
+
 #***************
 # asdf
 #***************
@@ -152,7 +170,7 @@ alias camera-restart="sudo killall VDCAssistant"
 alias pip=pip3
 
 # docker
-alias dc=docker-compose
+alias dc="docker compose"
 
 
 #************
@@ -215,30 +233,6 @@ ps1_status ()
 PS1="\n${blue}\$(ps1_status) ${purple}\u @ \h ${reset}in ${green}\w\n| \$(git_prompt_vars) | $ ${reset}"
 export PS1
 
-PATH="$PATH:${HOME}/bin"
-PATH="$PATH:/usr/sbin"
-PATH="/usr/local/bin:$PATH"
-PATH="/usr/local/sbin:$PATH"
-PATH="$PATH:${HOME}/Library/Python/3.7/bin"
-export PATH
-
-# load rbenv shims
-# if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
-#### Golang
-# For more info on GOPATH, see go help gopath
-export GOPATH="${HOME}/projects/go-workspace"
-PATH="${PATH}:${GOPATH}/bin"
-
-
-#*************
-# Sumo
-#*************
-
-sumo () {
-  ( cd ~/.livetail; unbuffer ./livetail $@; )
-}
-
 #*************
 # extras
 #*************
@@ -246,4 +240,3 @@ sumo () {
 [ -f ${HOME}/.bash_extras ] && . ${HOME}/.bash_extras
 # OS-specific extras
 [ -f ${HOME}/.bash_extras-os ] && . ${HOME}/.bash_extras-os
-
