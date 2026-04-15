@@ -3,6 +3,8 @@
 - name: 'Install system apps'
   homebrew:
     name:
+      - 'copilot-cli'
+      - '1password-cli'
       - 'libxml2'
       - 'libxslt'
       - 'htop'
@@ -12,6 +14,7 @@
       - 'gpg'
       - 'git-lfs'
       - 'jq'
+      - 'yq'
       - 'coreutils'
       - 'awscli'
       - 'pstree'
@@ -20,7 +23,6 @@
       - 'jid'
       - 'kubectl'
       - 'k9s'
-        #      - 'aws-okta'
-      - 'docker-credential-helper-ecr'
+      - 'docker-credentials-helper-ecr'
       - 'telnet'
       - 'bash-completion'
