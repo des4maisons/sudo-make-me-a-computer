@@ -12,3 +12,10 @@
     dest: '~/.ssh/config'
     mode: '0444'
     force: 'yes'
+
+- name: 'Create directory for ControlMaster'
+  file:
+    path: '~/.ssh/c'
+    state: 'directory'
+    mode: '0700'
+    force: 'yes'
