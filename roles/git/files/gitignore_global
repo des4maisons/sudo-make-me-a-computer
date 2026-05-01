@@ -46,3 +46,11 @@ Desktop.ini
 # Vim #
 # #########
 *.swp
+
+# Claude #
+# #########
+.claude/worktrees
+.claude/settings.local.json
+
+
+.env
